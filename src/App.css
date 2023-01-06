@@ -1,38 +1,242 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary-font: "Poppins", sans-serif;
+  --primary-color: #ffb252;
+  --secondary-color: #3e466d;
+}
+
+* {
+  font-family: var(--primary-font);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  padding-bottom: 3rem;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.page-title {
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: 2rem;
   text-align: center;
+  text-transform: uppercase;
+  word-spacing: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding: 2rem 0;
+  margin-top: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero-image {
+  width: 430px;
+  animation-name: hero-img;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.checkin-form {
+  width: 400px;
+}
+
+/* .input-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+} */
+
+input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+input:hover {
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+input,
+.field-group {
+  flex: 1;
+}
+
+.form-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.field-group {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s;
+  border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.students h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-bottom: 1px solid #ccc;
+  padding: 2rem 0;
+  color: var(--secondary-color);
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 3rem;
+  border: none;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+tr:nth-child(even) {
+  /* border-bottom: 1px solid #ccc; */
+  background: #eee;
+}
+
+tr:last-child {
+  border: none;
+}
+
+thead {
+  background-color: var(--secondary-color);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+th {
+  font-weight: 500;
+  padding: 1rem 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+td {
+  padding: 1rem;
+}
+
+.checkin-time {
+  text-align: center;
+}
+
+.students button {
+  background-color: #ff6347;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.students button:hover {
+  background-color: #ff3814;
+}
+
+.students {
+  display: flex;
+  gap: 2rem;
+}
+
+.students > div {
+  flex: 1;
+}
+
+@keyframes hero-img {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1250px) {
+  .hero-image {
+    width: 300px;
+  }
+
+  .checkin-form {
+    width: 300px;
+  }
+
+  .hero {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 1050px) {
+  .students {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero .right {
+    margin-top: 2rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .students h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .hero-image {
+    width: 100%;
+  }
+
+  .checkin-form {
+    width: 100%;
+  }
+
+  table {
+    max-width: 100%;
+    overflow-x: scroll;
   }
 }
