@@ -2,7 +2,7 @@ import "./App.css";
 import Container from "./components/Container";
 import Hero from "./components/Hero";
 import Students from "./components/Students";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
 import { useEffect, useState } from "react";
 
@@ -16,6 +16,7 @@ function App() {
 
       setStudents(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     })();
+    // eslint-disable-next-line
   }, []);
 
   return (
